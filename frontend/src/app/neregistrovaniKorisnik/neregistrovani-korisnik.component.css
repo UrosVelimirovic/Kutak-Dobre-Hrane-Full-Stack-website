@@ -1,0 +1,137 @@
+nav {
+  display: flex;
+  gap: 10px; /* Space between links */
+}
+
+nav a {
+  color: #fff; /* White text color */
+  text-decoration: none; /* Optional: remove underline */
+  padding: 0.5rem 1rem; /* Optional: padding for links */
+  border: 1px solid #ddd; /* Optional: border for links */
+  border-radius: 4px; /* Optional: rounded corners for links */
+  transition: background-color 0.3s; /* Optional: smooth transition for hover effect */
+}
+nav a:hover {
+  background-color: #555; /* Optional: hover background color */
+}
+
+table {
+  width: 500px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-height: 200px; /* Set the maximum height for the table body */
+  overflow-y: auto; /* Enable vertical scrolling */
+
+}
+
+/* Styling for table headers */
+th {
+  background-color: #ffbf00;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Styling for table rows */
+tr {
+  background-color: #f2f2f2;
+}
+
+/* Styling for table data */
+td {
+  padding: 8px;
+}
+
+
+
+.stats-container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+
+}
+
+.stats-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.stats-item {
+  margin-bottom: 10px;
+
+}
+
+.stats-label {
+  font-weight: bold;
+  color: #ffc800;
+}
+
+.stats-value {
+  color: #555;
+}
+
+
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-item {
+  margin-bottom: 20px;
+}
+
+.form-item label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.form-item input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-item button {
+  padding: 10px 20px;
+  background-color: #ffc800;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px; /* Add margin between buttons */
+}
+
+.form-item button:hover {
+  background-color: #b39800;
+}
+
+.form radio-container {
+  display: flex;
+  gap: 20px; /* Space between radio buttons */
+  font-family: Arial, sans-serif;
+}
+
+.radio-container input[type="radio"] {
+  margin-right: 5px; /* Space between radio button and label */
+
+}

@@ -1,0 +1,35 @@
+<h3 style="text-align: center; color: white">Narudzbine:</h3>
+<div class="container">
+  <table border = "1">
+    <tr>
+      <th>Narucilac</th>
+      <th>Restoran</th>
+      <th>Datum</th>
+      <th>Vreme dostave</th>
+      <th>Jela</th>
+      <th>Porvrdi</th>
+      <th>Odbij</th>
+    </tr>
+    <tr *ngFor = "let narudzbina of narudzbine" >
+        <td>{{narudzbina.korisnicko_ime}}</td>
+        <td>{{narudzbina.restoran}}</td>
+        <td>{{narudzbina.datum_i_vreme}}</td>
+        <td>
+          <select [(ngModel)]="narudzbina.vreme_dostave">
+            <option value="20-30">20-30 minuta</option>
+            <option value="30-40">30-40 minuta</option>
+            <option value="50-60">50-60 minuta</option>
+          </select>
+        </td>
+        <td >
+          <label style="color: black" *ngFor="let sastojci of narudzbina.sastojakKorpe ">{{sastojci.jelo}} x{{sastojci.kolicina}},</label>
+        </td>
+        <td>
+          <button (click)="potvrdi(narudzbina, true)">Potvrdi</button>
+        </td>
+        <td>
+          <button (click)="potvrdi(narudzbina, false)">Odbij</button>
+        </td>
+    </tr>
+  </table>
+</div>

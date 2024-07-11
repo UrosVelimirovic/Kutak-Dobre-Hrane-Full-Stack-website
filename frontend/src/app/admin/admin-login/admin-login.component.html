@@ -1,0 +1,16 @@
+
+<div class ="centered-container">
+  <div class="login-container">
+    <h2>Administrator login</h2>
+    <form>
+      <label for="korisnicko_ime:">Korisnicko ime:</label>
+      <input type="text" id="korisnicko_ime:" name="korisnicko_ime:" [(ngModel)]="korisnicko_ime" required>
+      <label for="lozinka">Lozinka</label>
+      <input type="password" id="lozinka" name="lozinka" [(ngModel)]="lozinka" required>
+      <button type="Login" (click)="login()">Login</button>
+      <br>
+      <p class="errorMessageClass">{{message}}</p>
+      <a routerLink="/promena_lozinke">Promena/zaboravljena lozinka</a>
+    </form>
+  </div>
+</div>

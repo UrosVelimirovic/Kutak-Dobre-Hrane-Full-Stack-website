@@ -1,0 +1,12 @@
+<div class="star-rating">
+  <span *ngFor="let star of stars; let i = index"
+        (click)="rate(i + 1)"
+        (mousemove)="setTemporaryRating(i + 1)"
+        (mouseleave)="clearTemporaryRating()"
+        [ngClass]="{
+          'full': star === 1,
+          'empty': star === 0
+        }">
+    ★
+  </span>
+</div>

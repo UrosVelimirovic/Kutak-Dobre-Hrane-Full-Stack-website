@@ -1,0 +1,63 @@
+
+
+<div class="register-form">
+  <h2>Registrujte se</h2>
+  <div class="form-group">
+    <label for="korisnicko_ime">Korisnicko ime:</label>
+    <input type="text" id="korisnicko_ime" [(ngModel)]="korisnicko_ime">
+  </div>
+  <div class="form-group">
+    <label for="lozinka">Lozinka:</label>
+    <input type="password" id="lozinka" [(ngModel)]="lozinka">
+    <p *ngIf = "this.sifraMessage != ''" class="errorMessageClass">{{sifraMessage}}</p>
+  </div>
+  <div class="form-group">
+    <label for="bezbednosno_pitanje">bezbednosno_pitanje:</label>
+    <input type="text" id="bezbednosno_pitanje" [(ngModel)]="bezbednosno_pitanje">
+  </div>
+  <div class="form-group">
+    <label for="odgovor">odgovor:</label>
+    <input type="text" id="odgovor" [(ngModel)]="odgovor">
+  </div>
+  <div class="form-group">
+    <label for="ime">ime:</label>
+    <input type="text" id="ime" [(ngModel)]="ime">
+  </div>
+  <div class="form-group">
+    <label for="prezime">prezime:</label>
+    <input type="text" id="prezime" [(ngModel)]="prezime">
+  </div>
+  <div class = "form-group">
+    <b>pol:</b>
+    <input type="radio" name="gender" value="Male" [(ngModel)]="pol">M
+    <input type="radio" name="gender" value="Female" [(ngModel)]="pol">F
+  </div>
+  <div class="form-group">
+    <label for="adresa">adresa:</label>
+    <input type="text" id="adresa" [(ngModel)]="adresa">
+  </div>
+  <div class="form-group">
+    <label for="kontakt_telefon">kontakt_telefon:</label>
+    <input type="text" id="kontakt_telefon" [(ngModel)]="kontakt_telefon">
+  </div>
+  <div class="form-group">
+    <label for="email">email:</label>
+    <input type="text" id="email" [(ngModel)]="email">
+  </div>
+  <div class="form-group">
+    <label for="email">restorani: (odvojiti ih zarezima!!)</label>
+    <input type="text" id="email" [(ngModel)]="restorani">
+  </div>
+  <div class = "form-group">
+    <label>profilna slika:</label>
+    <input type="file" (change)="izaberiSliku($event)">
+  </div>
+  <br>
+  <p class="errorMessageClass">{{slikaMessage}}</p>
+  <br>
+  <div class="form-group">
+    <label for="broj_kreditne_kartice">broj_kreditne_kartice:</label>
+    <input type="text" id="broj_kreditne_kartice" [(ngModel)]="broj_kreditne_kartice">
+  </div>
+  <button class="btn-register" (click)="register()">Register</button>
+</div>

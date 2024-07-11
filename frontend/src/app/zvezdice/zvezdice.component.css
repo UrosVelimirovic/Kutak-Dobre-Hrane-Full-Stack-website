@@ -1,0 +1,16 @@
+.star-rating {
+  display: flex;
+  direction: ltr; /* Right-to-left to handle the half-star hover correctly */
+}
+
+.star-rating span {
+  font-size: 2rem;
+  cursor: pointer;
+  color: lightgray;
+  transition: color 0.2s;
+}
+
+.star-rating span.full {
+  color: gold;
+}
+

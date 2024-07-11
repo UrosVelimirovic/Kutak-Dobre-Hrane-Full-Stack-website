@@ -1,0 +1,68 @@
+{
+  "canvasObjects": [
+    {
+      "isOriginal": false,
+      "type": "table",
+      "x": 177,
+      "y": 84,
+      "radius": 20,
+      "width": 0,
+      "height": 0,
+      "ordNumber": 1,
+      "fillStyle": "red",
+      "brojLjudi": 0
+
+    },
+    {
+      "isOriginal": false,
+      "type": "table",
+      "x": 427,
+      "y": 78,
+      "radius": 20,
+      "width": 0,
+      "height": 0,
+      "ordNumber": 2,
+      "fillStyle": "red",
+      "brojLjudi": 0
+
+    },
+    {
+      "isOriginal": false,
+      "type": "table",
+      "x": 310,
+      "y": 156,
+      "radius": 20,
+      "width": 0,
+      "height": 0,
+      "ordNumber": 3,
+      "fillStyle": "red",
+      "brojLjudi": 3
+
+    },
+    {
+      "isOriginal": false,
+      "type": "toilet",
+      "x": 220,
+      "y": 222,
+      "radius": 0,
+      "width": 60,
+      "height": 40,
+      "ordNumber": 0,
+      "fillStyle": "blue",
+      "brojLjudi": 0
+
+    },
+    {
+      "isOriginal": false,
+      "type": "kitchen",
+      "x": 476,
+      "y": 246,
+      "radius": 0,
+      "width": 60,
+      "height": 40,
+      "ordNumber": 0,
+      "fillStyle": "green",
+      "brojLjudi": 0
+    }
+  ]
+}

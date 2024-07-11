@@ -1,0 +1,24 @@
+<br>
+
+<div class="bar-chart-container chart-border">
+  <h3 class="chart-title">Raspodela gostiju po danima za konobara:</h3>
+  <canvas id="barChartCanvas" width="600" height="200"></canvas>
+</div><br><br>
+
+<div *ngFor="let restaurant of sviRestorani; let i = index">
+  <div class="pie-chart-container chart-border">
+    <h3 class="chart-title">Restoran: {{ restaurant }} - brojevi gostiju po konobarima</h3>
+    <canvas [id]="'pieChartCanvas' + i" width="600" height="400"></canvas>
+  </div>
+  <br>
+</div>
+
+<div class="chart-container">
+  <div *ngFor="let restaurant of sviRestorani; let i = index" class="chart-item">
+
+      <h3 class="chart-title">Broj Rezervacija u poslednja 24 meseca za: {{ restaurant }}</h3>
+      <canvas #barCanvas [id]="'barCanvas' + i" width="400" height="300" class="bar-chart"></canvas>
+    </div>
+  </div>
+
+

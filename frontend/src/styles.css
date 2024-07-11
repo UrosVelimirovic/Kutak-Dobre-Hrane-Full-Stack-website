@@ -1,0 +1,6 @@
+body {
+  background-image: url('./assets/pozadina4.jpg');
+  background-size: cover; /* Cover the entire background */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+}
+

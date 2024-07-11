@@ -1,0 +1,116 @@
+<div style="text-align: center;">
+
+  <h3 style="color: white">Korisnici:</h3>
+
+  <table border="1" style="margin: auto;">
+    <tr>
+      <th>Korisničko ime</th>
+      <th>Bezbednosno pitanje</th>
+      <th>Odgovor</th>
+      <th>Ime</th>
+      <th>Prezime</th>
+      <th>Pol</th>
+      <th>Adresa</th>
+      <th>Kontakt telefon</th>
+      <th>E-mail</th>
+      <th>Slika</th>
+      <th>Broj kreditne kartice</th>
+      <th>Tip</th>
+      <th>Status</th>
+      <th colspan="2">Akcije</th>
+    </tr>
+    <ng-container *ngFor="let korisnik of korisnici">
+      <tr *ngIf="korisnik.status !== 'CEKANJE'">
+          <td>{{korisnik.korisnicko_ime}}</td>
+          <td>{{korisnik.bezbednosno_pitanje}}</td>
+          <td>{{korisnik.odgovor}}</td>
+          <td>{{korisnik.ime}}</td>
+          <td>{{korisnik.prezime}}</td>
+          <td>{{korisnik.pol}}</td>
+          <td>{{korisnik.adresa}}</td>
+          <td>{{korisnik.kontakt_telefon}}</td>
+          <td>{{korisnik.email}}</td>
+          <td><button (click)="prikaziSliku(korisnik.profilna_slika)">Prikazi</button></td>
+          <td>{{korisnik.broj_kreditne_kartice}}</td>
+          <td>{{korisnik.tip}}</td>
+          <td>{{korisnik.status}}</td>
+          <td>
+            <button (click)="azuriraj(korisnik)">Azuriraj</button>
+          </td>
+          <td>
+            <button [disabled]="korisnik.status == 'DEAKTIVIRAN'" (click)="deaktiviraj(korisnik)">Deaktiviraj</button>
+          </td>
+      </tr>
+    </ng-container>
+  </table>
+  <br>
+  <button (click)="registrujKonobara()">Registruj konobara</button>
+  <br>
+  <br>
+  <img [src]="slika">
+
+  <br>
+  <h3 style="color: white">Zahtevi za registraciju: </h3>
+  <table border="1" style="margin: auto;">
+    <tr>
+      <th>Korisničko ime</th>
+      <th>Bezbednosno pitanje</th>
+      <th>Odgovor</th>
+      <th>Ime</th>
+      <th>Prezime</th>
+      <th>Pol</th>
+      <th>Adresa</th>
+      <th>Kontakt telefon</th>
+      <th>E-mail</th>
+      <th>Slika</th>
+      <th>Broj kreditne kartice</th>
+      <th>Tip</th>
+      <th>Status</th>
+      <th colspan="2">Akcije</th>
+    </tr>
+    <tr *ngFor="let korisnik of korisniciCekanje">
+      <td>{{korisnik.korisnicko_ime}}</td>
+      <td>{{korisnik.bezbednosno_pitanje}}</td>
+      <td>{{korisnik.odgovor}}</td>
+      <td>{{korisnik.ime}}</td>
+      <td>{{korisnik.prezime}}</td>
+      <td>{{korisnik.pol}}</td>
+      <td>{{korisnik.adresa}}</td>
+      <td>{{korisnik.kontakt_telefon}}</td>
+      <td>{{korisnik.email}}</td>
+      <td><button (click)="prikaziSliku(korisnik.profilna_slika)">Prikazi</button></td>
+      <td>{{korisnik.broj_kreditne_kartice}}</td>
+      <td>{{korisnik.tip}}</td>
+      <td>{{korisnik.status}}</td>
+      <td><button (click)="prihvati(korisnik, 'PRIHVACEN')">Prihvati</button></td>
+      <td><button (click)="prihvati(korisnik, 'ODBIJEN')">Odbij</button></td>
+    </tr>
+  </table>
+  <br>
+  <h3 style="color: white">Restorani:</h3>
+  <table border="1" style="margin: auto;">
+    <tr>
+      <th>Naziv</th>
+      <th>Tip</th>
+      <th>Adresa</th>
+      <th>Opis</th>
+      <th>Telefon</th>
+      <th>Konobari</th>
+      <th>Ocene</th>
+      <th>Komentari</th>
+      <th>Radno Vreme</th>
+    </tr>
+    <tr *ngFor="let restoran of restorani">
+      <td>{{restoran.ime}}</td>
+      <td>{{restoran.tip}}</td>
+      <td>{{restoran.adresa}}</td>
+      <td>{{restoran.opis}}</td>
+      <td>{{restoran.telefon}}</td>
+      <td>{{restoran.konobari}}</td>
+      <td>{{restoran.ocene}}</td>
+      <td>{{restoran.komentari}}</td>
+      <td>{{restoran.radno_vreme}}</td>
+    </tr>
+  </table>
+  <button (click)="generisiRestoran()">Dodaj restoran</button>
+</div>

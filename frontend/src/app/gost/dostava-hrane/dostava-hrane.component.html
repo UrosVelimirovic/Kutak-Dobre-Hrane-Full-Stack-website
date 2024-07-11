@@ -1,0 +1,39 @@
+<h3 class="container" style="color: white">Aktivne dostave:</h3>
+<div class="container">
+<table border = "1">
+  <tr>
+    <th>Naziv restorana</th>
+    <th>Status</th>
+    <th>Procenjeno vreme dostave</th>
+    <th>Primljena</th>
+  </tr>
+  <tr *ngFor="let narudzbina of narudzbine">
+    <ng-container *ngIf="narudzbina.status == 'CEKANJE' || narudzbina.status == 'POTVRDJENA' ">
+      <td>{{narudzbina.restoran}}</td>
+      <td>{{narudzbina.status}}</td>
+      <td>{{narudzbina.vreme_dostave}}</td>
+      <td>
+        <button (click)="primljena(narudzbina)">primljena</button>
+      </td>
+    </ng-container>
+  </tr>
+</table>
+</div>
+
+<h3 class="container" style="color: white">Arhivirane dostave:</h3>
+<div class="container">
+<table border = "1">
+  <tr>
+    <th>Naziv restorana</th>
+    <th>Datum Dostave</th>
+    <th>Racun</th>
+  </tr>
+  <tr *ngFor="let narudzbina of narudzbine">
+    <ng-container *ngIf="narudzbina.status != 'CEKANJE' && narudzbina.status != 'POTVRDJENA'">
+       <td>{{narudzbina.restoran}}</td>
+    <td>{{narudzbina.datum_i_vreme}}</td>
+    <td>{{narudzbina.cena}}</td>
+    </ng-container>
+  </tr>
+</table>
+</div>

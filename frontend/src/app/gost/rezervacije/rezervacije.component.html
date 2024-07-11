@@ -1,0 +1,53 @@
+<h3 class="container" style="color: white">Aktivne:</h3>
+<div class="container">
+  <table border = "1">
+    <tr>
+      <th>Datum rezervacije</th>
+      <th>Restoran</th>
+      <th>Komentar</th>
+      <th>Ocena</th>
+    </tr>
+    <tr *ngFor = "let rezervacija of rezervacije" >
+      <ng-container *ngIf="rezervacija.status == 'PRIHVACENA' || rezervacija.status == 'CEKANJE'">
+        <td>{{rezervacija.datum}}</td>
+        <td>{{rezervacija.naziv_restorana}}</td>
+        <td>{{rezervacija.komentar}}</td>
+        <td>{{rezervacija.ocena}}</td>
+        <td>
+          <button (click)="otkazi(rezervacija)">Otkazi</button>
+        </td>
+      </ng-container>
+    </tr>
+  </table>
+</div>
+<p class="container" style="color:red">{{message}}</p>
+<h3 class="container" style="color: white">Istekle:</h3>
+<div class="container">
+  <!-- ------------------------- -->
+  <table border = "1">
+    <tr>
+      <th>Datum rezervacije</th>
+      <th>Restoran</th>
+      <th>Komentar</th>
+      <th>Ocena</th>
+      <th>Dodaj komentar i ocenu</th>
+    </tr>
+    <tr *ngFor = "let rezervacija of rezervacije" >
+      <ng-container *ngIf="rezervacija.status != 'PRIHVACENA' && rezervacija.status != 'CEKANJE'">
+        <td>{{rezervacija.datum}}</td>
+        <td>{{rezervacija.naziv_restorana}}</td>
+        <td>{{rezervacija.komentar}}</td>
+        <td>{{rezervacija.ocena}}</td>
+        <td>
+            <button *ngIf="rezervacija.ocena == null" (click)="dodajKomentarIOcenu(rezervacija)">Dodaj</button>
+        </td>
+      </ng-container>
+    </tr>
+  </table>
+</div>
+<div class="container" *ngIf="displayTextInput == true">
+  <p style="color: white">Komentar:</p> <input type="text" [(ngModel)]="noviKomentar">
+  <p style="color: white">  Ocena:</p>
+  <app-zvezdice [(rating)]="novaOcena"></app-zvezdice>
+  <button (click)="oceniIDodajKomentar()">Potvrdi</button>
+</div>

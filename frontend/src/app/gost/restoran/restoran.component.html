@@ -1,0 +1,124 @@
+<div style="text-align: center;">
+  <h3><b style="color: white">Restoran:</b></h3>
+  <table border="1" style="margin: auto;">
+    <tr>
+      <th>Naziv</th>
+      <th>Adresa</th>
+      <th>Tip</th>
+      <th *ngFor="let konobar of restoran!.konobari">Konobar</th>
+      <th>Telefon</th>
+      <th>Prosecna ocena</th>
+    </tr>
+    <tr>
+      <td>{{restoran!.ime}}</td>
+      <td>{{restoran!.adresa}}</td>
+      <td>{{restoran!.tip}}</td>
+      <td *ngFor="let konobar of restoran!.konobari">
+        {{konobar}}
+      </td>
+      <td *ngIf="restoran!.konobari.length == 0">
+        /
+      </td>
+      <td>
+        {{restoran!.telefon}}
+      </td>
+      <td>
+        {{prosecnaOcena}}
+        <app-zvezdice class="content" [rating]="prosecnaOcena"></app-zvezdice>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <h3><b style="color: white">Komentari:</b></h3>
+  <div *ngFor="let komentar of restoran?.komentari">
+    <h3><b style="color: white">{{komentar}}</b></h3>
+  </div>
+  <br>
+
+  <br>
+  <br>
+  <h3><b style="color: white">Mapa:</b></h3>
+  <div id="map" style="margin: auto;">
+    <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;">
+      <img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo">
+    </a>
+  </div>
+  <p>
+    <a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">
+      &copy; MapTiler
+    </a>
+    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">
+      &copy; OpenStreetMap contributors
+    </a>
+  </p>
+
+  <div class="container-rezerv">
+    <h3><b>Rezervacija:</b></h3>
+    <label><b>Prvi nacin:</b></label>
+    <label><b>Datum i vreme:</b></label>
+    <input type="datetime-local" id="datetime" name="datetime" [(ngModel)]="rezervacija_datum_vreme">
+    <label><b>Broj osoba:</b></label>
+    <input type="text" name="broj_osoba" [(ngModel)]="rezervacija_broj_osoba">
+    <label><b>Opis:</b></label>
+    <input type="text" name="opis" [(ngModel)]="rezervacija_opis">
+    <button (click)="potvrdiRezervaciju()">Potvrdi</button>
+    <p class="errorMessageClass">{{rezervacija_poruka}}</p>
+  </div>
+<b style="color: white">Drugi nacin:</b>
+  <div class="rectangle">
+    <div class="top-container">
+      <div class="top-left-rectangle">
+        {{restoran!.ime}}
+      </div>
+      <div class="top-right-container">
+        <input type="datetime-local"
+                id="datetime"
+                name="datetime"
+                [(ngModel)] = "rezervacija_datum_vreme"
+                (ngModelChange)="obojiObjekte()"
+        >
+      </div>
+    </div>
+    <div>
+      Broj osoba:  <input type="text" [(ngModel)]="rezervacija_broj_osoba">
+    </div>
+    <div class="content">
+      <canvas #canvas width="800" height="600"></canvas>
+    </div>
+  </div>
+  <div class="container-menu">
+    <h3>Jelovnik:</h3>
+    <ul>
+        <li *ngFor="let jelo of restoran!.jelovnik.jela">
+            <div *ngIf="jelo.slika != 'USER'">
+                <span class="menu-item-name">Naziv : {{jelo.naziv}}</span>
+                <span class="menu-item-price">Cena: {{jelo.cena}}din</span>
+                <span class="menu-item-ingredients">Sastojci: {{jelo.sastojci}}</span>
+                <img [src]="jelo.slika">
+                Kolicina: <input type="number" #quantityInput min="1">
+                <br>
+                <button (click)="dodajUKorpu(jelo, parseQuantity(quantityInput.value))">Dodaj u korpu</button>
+            </div>
+        </li>
+    </ul>
+    <button (click)="prikaziKorpu()">Pregledaj korpu</button>
+    <button (click)="zavrsiNarudzbinu()">Zavrsi porudzbinu</button>
+  </div>
+  <div *ngIf="pregledaj_korpu" style="text-align: center;">
+    <h3><b style="color: white">Korpa:</b></h3>
+    <br>
+    <table border="1" style="margin: auto;">
+      <tr>
+        <th>Naziv:</th>
+        <th>Kolicina:</th>
+        <th>Ukloni</th>
+      </tr>
+      <tr *ngFor="let sastojak of korpa">
+        <td>{{sastojak.jelo}}</td>
+        <td>{{sastojak.kolicina}}</td>
+        <td><button (click)="ukloniJelo(sastojak.jelo)" style="color: black">Ukloni</button></td>
+      </tr>
+    </table>
+
+  </div>
+</div>

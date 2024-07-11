@@ -1,0 +1,107 @@
+<nav>
+  <a routerLink="/login" style="color: #fff;">Login</a>
+  <a routerLink="/register" style="color: #fff;">Register</a>
+</nav>
+<div style="text-align: center;">
+  <div class="stats-container">
+    <div class="stats-item">
+      <span class="stats-label">Ukupan broj restorana:</span>
+      <span class="stats-value">{{broj_restorana}}</span>
+    </div>
+    <div class="stats-item">
+      <span class="stats-label">Ukupan broj registrovanih gostiju:</span>
+      <span class="stats-value">{{broj_registrovanih_gostiju}}</span>
+    </div>
+    <div class="stats-item">
+      <span class="stats-label">Broj rezervacija u poslednjih 24 casa:</span>
+      <span class="stats-value">{{broj_rezervacija_u_24h}}</span>
+    </div>
+    <div class="stats-item">
+      <span class="stats-label">Broj rezervacija u poslednjih 7 dana:</span>
+      <span class="stats-value">{{broj_rezervacija_u_7d}}</span>
+    </div>
+    <div class="stats-item">
+      <span class="stats-label">Broj rezervacija u poslednjih mesec dana:</span>
+      <span class="stats-value">{{broj_rezervacija_u_1m}}</span>
+    </div>
+  </div>
+
+  <br><br><br>
+  <b style="color: #fff;"><h3>Restorani:</h3></b>
+  <br><br>
+
+  <table border="1" style="margin: auto;">
+    <tr>
+      <th>Naziv</th>
+      <th>Adresa</th>
+      <th>Tip</th>
+      <th>Konobari</th>
+    </tr>
+    <tr *ngFor="let restoran of restorani">
+      <td>{{restoran.ime}}</td>
+      <td>{{restoran.adresa}}</td>
+      <td>{{restoran.tip}}</td>
+      <td >
+        <p *ngFor="let konobar of restoran.konobari">{{konobar}}</p>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <div class="form-item">
+    <p style ="color: white"><b>Sortiraj po:</b></p>
+    <button (click)="sortiraj('IME')"><b>Imenu</b></button>
+    <button (click)="sortiraj('TIP')"><b>Tipu</b></button>
+    <button (click)="sortiraj('ADRESA')"><b>Adresi</b></button>
+    <div class="radio-container">
+      <label style="color:white">
+        Neopadajuce:
+        <input type="radio" name="choice" value="NEOPADAJUCE" [(ngModel)] = "sortiranje_opcija">
+
+      </label>
+      <label style="color:white">
+        Nerastuce:
+        <input type="radio" name="choice" value="NERASTUCE"  [(ngModel)] = "sortiranje_opcija">
+
+      </label>
+    </div>
+  </div>
+  <br><br><br>
+  <b style="color: #fff;"><h3>Pretrazi restoran:</h3></b>
+  <br><br>
+
+  <div class="form-container">
+    <div class="form-item">
+      <label>Naziv:</label>
+      <input type="text" id="naziv" [(ngModel)]="regexNaziv">
+    </div>
+    <div class="form-item">
+      <label>Adresa:</label>
+      <input type="text" id="adresa" [(ngModel)]="regexAdresa">
+    </div>
+    <div class="form-item">
+      <label>Tip:</label>
+      <input type="text" id="tip" [(ngModel)]="regexTip">
+    </div>
+
+    <div class="form-item">
+      <button (click)="pretrazi()"><b>Pretraži</b></button>
+    </div>
+  </div>
+
+  <table border="1" style="margin: auto;" *ngIf="regexRestorani.length>0">
+    <tr>
+      <th>Naziv</th>
+      <th>Adresa</th>
+      <th>Tip</th>
+      <th>Konobari</th>
+    </tr>
+    <tr *ngFor="let restoran of regexRestorani">
+      <td>{{restoran.ime}}</td>
+      <td>{{restoran.adresa}}</td>
+      <td>{{restoran.tip}}</td>
+      <td >
+        <p *ngFor="let konobar of restoran.konobari">{{konobar}}</p>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<div class="promena-form">
+  <h2>Promena lozinke</h2>
+  <div class="form-group">
+    <label for="korisnicko_ime">Korisnicko ime:</label>
+    <input type="text" id="korisnicko_ime" [(ngModel)]="korisnicko_ime">
+  </div>
+  <br>
+  <br>
+  <div *ngIf="faza == 2 || faza == 3" class="form-group">
+    <label>Bezbednosno pitanje: {{pitanje}}</label>
+    <b>Odgovor:</b>
+    <input type="text" id="Odgovor" [(ngModel)]="odgovor">
+    <p class="errorMessageClass">{{pogresan_odgovor_message}}</p>
+  </div>
+  <div *ngIf="faza == 3" class="form-group">
+
+    <label>Nova lozinka:</label>
+    <input type="password" id="Odgovor" [(ngModel)]="lozinka1">
+    <label>Ponovljena nova lozinka:</label>
+    <input type="password" id="Odgovor" [(ngModel)]="lozinka2">
+    <p class="errorMessageClass">{{lozinke_nisu_iste_message}}</p>
+    <p class="errorMessageClass">{{sifraMessage}}</p>
+  </div>
+  <button class="btn-promena" (click)="potvrdi()">Potvrdi</button>
+
+</div>

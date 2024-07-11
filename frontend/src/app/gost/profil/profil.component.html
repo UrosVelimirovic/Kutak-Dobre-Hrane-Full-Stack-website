@@ -1,0 +1,100 @@
+<div class="profile-container">
+  <h3>Profil</h3>
+  <img [src]="korisnik.profilna_slika" alt="Profilna slika">
+  <div class="profile-info">
+    <span>Ime:</span> {{korisnik.ime}}
+  </div>
+  <div class="profile-info">
+    <span>Prezime:</span> {{korisnik.prezime}}
+  </div>
+  <div class="profile-info">
+    <span>Adresa:</span> {{korisnik.adresa}}
+  </div>
+  <div class="profile-info">
+    <span>E-mail:</span> {{korisnik.email}}
+  </div>
+  <div class="profile-info">
+    <span>Kontakt telefon:</span> {{korisnik.kontakt_telefon}}
+  </div>
+  <div class="profile-info">
+    <span>Broj kreditne kartice:</span> {{korisnik.broj_kreditne_kartice}}
+  </div>
+  <button (click)="azurirajFlag()">Azuriraj profil</button>
+  <br>
+  <br>
+  <button (click)=lozinkaFlag()>Promeni Lozinku</button>
+</div>
+
+<div class="register-form" *ngIf="azuriraj">
+  <h2>Azurirajte Profil</h2>
+  <div class="form-group">
+    <label for="korisnicko_ime">Korisnicko ime:</label>
+    <input type="text" id="korisnicko_ime" value="korisnicko_ime" [(ngModel)]="korisnicko_ime">
+  </div>
+  <div class="form-group">
+    <label for="bezbednosno_pitanje">bezbednosno_pitanje:</label>
+    <input type="text" id="bezbednosno_pitanje" [(ngModel)]="bezbednosno_pitanje">
+  </div>
+  <div class="form-group">
+    <label for="odgovor">odgovor:</label>
+    <input type="text" id="odgovor" [(ngModel)]="odgovor">
+  </div>
+  <div class="form-group">
+    <label for="ime">ime:</label>
+    <input type="text" id="ime" [(ngModel)]="ime">
+  </div>
+  <div class="form-group">
+    <label for="prezime">prezime:</label>
+    <input type="text" id="prezime" [(ngModel)]="prezime">
+  </div>
+  <div class = "form-group">
+    <b>pol:</b>
+    <input type="radio" name="gender" value="Male" [(ngModel)]="pol">M
+    <input type="radio" name="gender" value="Female" [(ngModel)]="pol">F
+  </div>
+  <div class="form-group">
+    <label for="adresa">adresa:</label>
+    <input type="text" id="adresa" [(ngModel)]="adresa">
+  </div>
+  <div class="form-group">
+    <label for="kontakt_telefon">kontakt_telefon:</label>
+    <input type="text" id="kontakt_telefon" [(ngModel)]="kontakt_telefon">
+  </div>
+  <div class="form-group">
+    <label for="email">email:</label>
+    <input type="text" id="email" [(ngModel)]="email">
+  </div>
+  <div class = "form-group">
+    <label>profilna slika:</label>
+    <input type="file" (change)="izaberiSliku($event)">
+  </div>
+  <br>
+  <p class="errorMessageClass">{{slikaMessage}}</p>
+  <br>
+  <div class="form-group">
+    <label for="broj_kreditne_kartice">broj_kreditne_kartice:</label>
+    <input type="text" id="broj_kreditne_kartice" [(ngModel)]="broj_kreditne_kartice">
+  </div>
+  <button class="btn-register" (click)="azurirajFoo()">Azuriraj</button>
+</div>
+
+
+<div class="register-form" *ngIf="promenaLozinke">
+  <div class="form-group">
+    <label for="bezbednosno_pitanje">stara lozinka:</label>
+    <input type="text" id="bezbednosno_pitanje" [(ngModel)]="stara_lozinka">
+  </div>
+  <div class="form-group">
+    <label for="bezbednosno_pitanje">nova lozinka:</label>
+    <input type="text" id="bezbednosno_pitanje" [(ngModel)]="nova_lozinka">
+  </div>
+  <div class="form-group">
+    <label for="bezbednosno_pitanje">ponovljena nova lozinka:</label>
+    <input type="text" id="bezbednosno_pitanje" [(ngModel)]="ponovljena_nova_lozinka">
+  </div>
+  <p class="errorMessageClass">{{sifraMessage}}</p>
+  <button class="btn-register" (click)="promeniLozinku()">Promeni Lozinku</button>
+  <br>
+  <br>
+  <button class="btn-register" (click)="bezbednosno()">Probaj preko bezbednosnog pitanja</button>
+</div>

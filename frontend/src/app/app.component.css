@@ -1,0 +1,35 @@
+.header {
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.header h1 {
+
+  text-align: center;
+  grid-column: 1 / -1; /* Span all columns to center the heading */
+}
+
+nav {
+  display: flex;
+  gap: 10px; /* Space between links */
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff; /* Optional: link color */
+  padding: 0.5rem 1rem; /* Optional: padding for links */
+  border: 1px solid #ddd; /* Optional: border for links */
+  border-radius: 4px; /* Optional: rounded corners for links */
+  transition: background-color 0.3s; /* Optional: smooth transition for hover effect */
+}
+
+nav a:hover {
+  background-color: #555; /* Optional: hover background color */
+}

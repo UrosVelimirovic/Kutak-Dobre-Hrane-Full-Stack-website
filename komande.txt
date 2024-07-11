@@ -1,0 +1,12 @@
+npm install crypto-js 2x ukucaj
+npm install leaflet
+npm install --save-dev @types/leaflet
+npm install --save-dev @types/crypto-js
+
+ts config.json
+es ModuleInterop: true
+moduleResolution: "node"
+
+npm install chart.js ng2-charts
+
+sve instalacije radi van foldera backend i frontend

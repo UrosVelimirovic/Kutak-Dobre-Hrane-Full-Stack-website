@@ -1,0 +1,63 @@
+canvas {
+  border: 5px solid black; /* Add a white border around the canvas */
+  background-color: white; /* Set the background color of the canvas */
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container label {
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.container input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+table {
+  width: 500px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-height: 200px; /* Set the maximum height for the table body */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Styling for table headers */
+th {
+  background-color: #ffbf00;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* Styling for table data */
+td {
+  padding: 8px;
+  background-color: #f2f2f2;
+}
+
+button {
+  background-color: #ffbf00;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button:hover {
+  background-color: grey;
+}

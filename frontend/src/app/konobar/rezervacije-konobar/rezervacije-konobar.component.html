@@ -1,0 +1,71 @@
+<br>
+<h3 style="text-align: center; color: white">Restorani:</h3>
+<div class="container" *ngFor="let restoran of restorani">
+  <label><b>{{restoran}}</b></label>
+</div>
+<hr>
+<h3 style="text-align: center; color: white">Rezervacije na cekanju:</h3>
+<br>
+<div class="container">
+  <table border = "1">
+    <tr>
+      <th>Datum rezervacije</th>
+      <th>Restoran</th>
+      <th>Select</th>
+    </tr>
+    <tr *ngFor = "let rezervacija of rezervacije" >
+        <td>{{rezervacija.datum}}</td>
+        <td>{{rezervacija.naziv_restorana}}</td>
+        <td>
+          <button (click)="select(rezervacija)">Select</button>
+        </td>
+    </tr>
+  </table>
+</div>
+<br><br><br>
+<div style="text-align: center;">
+  <canvas #canvas width="800" height="600"></canvas>
+</div>
+<br>
+<div class="container">
+  <button (click)="potvrdi(true)">Potvrdi</button>
+</div>
+<br>
+<div class="container">
+  <button (click)="potvrdi(false)">Odbij</button>
+</div>
+<br>
+<div class="container">
+  <label><b>Komentar uz odbijanje (obavezan)</b></label>
+  <input type="text" [(ngModel)]="odbijKomentar">
+</div>
+<hr>
+<h3 style="text-align: center; color: white">Rezervacije koje ste vi prihvatili:</h3>
+<div class="container">
+  <table border = "1">
+    <tr>
+      <th>Datum rezervacije</th>
+      <th>Restoran</th>
+      <th>Musterija odsutna</th>
+      <th>Musterija prisutna</th>
+      <th>Produzi za 1h</th>
+      <th>Oslobodi sto</th>
+    </tr>
+    <tr *ngFor = "let rezervacija of potvrdjeneRezervacije" >
+        <td>{{rezervacija.datum}}</td>
+        <td>{{rezervacija.naziv_restorana}}</td>
+        <td>
+          <button *ngIf="rezervacija.status != 'PRISUTAN' && rezervacija.status != 'ODSUTAN'" (click)="prisutna(rezervacija, false)">Odsutna</button>
+        </td>
+        <td>
+          <button *ngIf="rezervacija.status != 'PRISUTAN' && rezervacija.status != 'ODSUTAN'" (click)="prisutna(rezervacija, true)">Prisutna</button>
+        </td>
+        <td>
+          <button *ngIf="rezervacija.produzena == 'NE' && rezervacija.status == 'PRISUTAN'" (click)="produzi(rezervacija)">Produzi</button>
+        </td>
+        <td>
+          <button (click)="oslobodi(rezervacija)">Oslobodi</button>
+        </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,81 @@
+<div style="text-align: center;">
+  Restorani:
+  <br>
+
+  <table border="1" style="margin: auto;">
+    <tr>
+      <th>Naziv</th>
+      <th>Adresa</th>
+      <th>Tip</th>
+      <th>Konobari</th>
+    </tr>
+    <tr *ngFor="let restoran of restorani">
+      <td><span class="clickable-link" (click)="restoranGo(restoran)">{{restoran.ime}}</span></td>
+      <td>{{restoran.adresa}}</td>
+      <td>{{restoran.tip}}</td>
+      <td >
+        <p *ngFor="let konobar of restoran.konobari">{{konobar}}</p>
+
+      </td>
+    </tr>
+  </table>
+  <br>
+  <div class="form-item">
+    <p style ="color: white"><b>Sortiraj po:</b></p>
+    <button (click)="sortiraj('IME')"><b>Imenu</b></button>
+    <button (click)="sortiraj('TIP')"><b>Tipu</b></button>
+    <button (click)="sortiraj('ADRESA')"><b>Adresi</b></button>
+    <div class="radio-container">
+      <label>
+        Neopadajuce:
+        <input type="radio" name="choice" value="NEOPADAJUCE" [(ngModel)] = "sortiranje_opcija">
+
+      </label>
+      <label>
+        Nerastuce:
+        <input type="radio" name="choice" value="NERASTUCE"  [(ngModel)] = "sortiranje_opcija">
+
+      </label>
+    </div>
+  </div>
+  <br><br><br>
+  <b style="color: #fff;"><h3>Pretrazi restoran:</h3></b>
+  <br><br>
+
+  <div class="form-container">
+    <div class="form-item">
+      <label for="naziv" style="color:black">Naziv:</label>
+      <input type="text" id="naziv" [(ngModel)]="regexNaziv">
+    </div>
+    <div class="form-item">
+      <label for="adresa" style="color:black">Adresa:</label>
+      <input type="text" id="adresa" [(ngModel)]="regexAdresa">
+    </div>
+    <div class="form-item">
+      <label for="tip" style="color:black">Tip:</label>
+      <input type="text" id="tip" [(ngModel)]="regexTip">
+    </div>
+
+    <div class="form-item">
+      <button (click)="pretrazi()"><b>Pretraži</b></button>
+    </div>
+  </div>
+
+  <table border="1" style="margin: auto;" *ngIf="regexRestorani.length>0">
+    <tr>
+      <th>Naziv</th>
+      <th>Adresa</th>
+      <th>Tip</th>
+      <th>Konobari</th>
+    </tr>
+    <tr *ngFor="let restoran of regexRestorani">
+      <td><span class="clickable-link" (click)="restoranGo(restoran)">{{restoran.ime}}</span></td>
+      <td>{{restoran.adresa}}</td>
+      <td>{{restoran.tip}}</td>
+      <td >
+        <p *ngFor="let konobar of restoran.konobari">{{konobar}}</p>
+      </td>
+    </tr>
+  </table>
+</div>
+

@@ -1,0 +1,71 @@
+<div class="container-cont">
+  <label>Naziv:</label> <input type="text" [(ngModel)]="naziv">
+  <br/>
+  <label>Tip:</label> <input type="text" [(ngModel)]="tip">
+  <br/>
+ <label>Adresa:</label> <input type="text" [(ngModel)]="adresa">
+  <br/>
+  <label>Opis:</label> <input type="text" [(ngModel)]="opis">
+  <br/>
+  <label>Kontakt:</label> <input type="text" [(ngModel)]="kontakt">
+  <br/>
+  <label>Radno vreme(hh:mm-hh:mm):</label> <input type="text" [(ngModel)]="radno_vreme">
+  <br/>
+</div>
+<br>
+<div class="table-container">
+  <table border="1">
+    <tr>
+      <th>Izabran sto:</th>
+      <th>
+        Broj ljudi
+      </th>
+      <th>
+        Sacuvaj
+      </th>
+    </tr>
+    <tr>
+      <td *ngIf="selectedNonOriginalObject">
+        Sto {{selectedNonOriginalObject.ordNumber}}
+      </td>
+      <td>
+        <input type="text" value="selectedNonOriginalObjectPeople"[(ngModel)]="selectedNonOriginalObjectPeople">
+      </td>
+      <td>
+        <button (click)="sacuvajBrojLjudi()">-</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<br>
+<div style="background-color: white;">
+ <b style="color: red">STO     </b><b style="color: blue">WC                 </b><b style="color: green">KUHINJA</b>
+</div>
+<div style=" margin: 0 auto;">
+  <canvas #canvas width="800" height="600" ></canvas>
+</div>
+<br>
+<div class="container-cont">
+  <b >Dodaj JSON raspored  </b><input type="file" (change)="dodajJSONraspored($event)">
+</div>
+<br>
+<div class="container-cont">
+  <h3>Jelovnik:</h3>
+  <label>Naziv jela:</label> <input type="text" [(ngModel)]="trenutni_naziv_jela">
+  <br>
+  <label>Cena:</label> <input type="text" [(ngModel)]="trenutna_cena_jela">
+  <br>
+  <label>Sastojci:</label>: <input type="text" [(ngModel)]="trenutni_sastojci_jela">
+  <br>
+  <label>Slika:</label> <input type="file" (change)="izaberiSliku($event)">
+  <br>
+  <button (click)="dodajJelo()"><label>Dodaj jelo u jelovnik</label></button>
+  <br>
+  <br>
+  <br>
+  <button (click)="dodaj()"><label>Dodaj</label></button>
+  <br>
+  <p class="errorMessageClass">{{message}}</p>
+</div>
+
+
